@@ -1,10 +1,10 @@
 const asyncHandler = require("express-async-handler");
-const db = require("../config/db");
-const collection = require("../config/collection");
-const generateToken = require("../utils/jwtToken");
+const db = require("config/db");
+const collection = require("config/collection");
+const generateToken = require("utils/jwtToken");
 const { ObjectId } = require("mongodb");
-const { GALLERY_COLLECTION } = require("../config/collection");
-const {CLIENTS_COLLECTION} = require ('../config/collection')
+const { GALLERY_COLLECTION } = require("config/collection");
+const {CLIENTS_COLLECTION} = require ('config/collection')
 
 const Login = asyncHandler(async (req, res) => {
 

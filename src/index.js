@@ -1,6 +1,6 @@
 const express = require("express");
-const adminRoutes = require("./routes/adminRoutes");
-const db = require("./config/db");
+const adminRoutes = require("routes/adminRoutes");
+const db = require("config/db");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const cors=require("cors")
