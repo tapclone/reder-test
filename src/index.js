@@ -1,11 +1,22 @@
-const express = require('express')
-const server = express()
+const express = require("express");
+const adminRoutes = require("./routes/adminRoutes");
+const db = require("./config/db");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
+const cors=require("cors")
 
-server.use((req, res) => {
-  res.send('Hello World!')
-})
-
-const PORT = process.env.PORT || 3000
-server.listen(PORT, () => {
-  console.log('Server listening on http://localhost:' + PORT)
-})
+const app = express();
+app.use(express.json());
+app.use(cookieParser());
+app.use(cors())
+app.use(session({ secret: "key", cookie: { maxAge: 6000000 } }));
+app.use("/api/admin", adminRoutes);
+const PORT = process.env.PORT || 8000;
+db.connect((err) => {        
+  if (err) {  
+    console.log("connection error" + err);     
+  } else {
+    console.log("database connected");
+  } 
+});
+app.listen(PORT, console.log(`server started on PORT ${PORT}`));  
