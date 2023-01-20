@@ -164,11 +164,11 @@ const DeleteClients = asyncHandler(async (req, res) => {
   }
 });
 router.route("/login").post(Login);
-router.route("/addGallery").post(verifyToken, AddGallery);
+router.route("/addGallery").post( AddGallery);
 router.route("/viewAllGallery").get(viewAllGallery);
-router.route("/deleteGallery/:id").delete(verifyToken, DeleteGallery);
-router.route("/addClients").post(verifyToken, AddClients);
-router.route("/deleteClients/:id").delete(verifyToken, DeleteClients);
+router.route("/deleteGallery/:id").delete( DeleteGallery);
+router.route("/addClients").post( AddClients);
+router.route("/deleteClients/:id").delete(DeleteClients);
 router.route("/viewAllClients").get(ViewAllClients);
 
 app.listen(PORT, console.log(`server started on PORT ${PORT}`));
